@@ -5,13 +5,15 @@ using namespace std;
 int main() {
     int i, j, k, n;
 
-    float a[10][10], b, x[10];
-
-    char c[10];
-
+    float a[11][11], b, x[11];
 
     cout << "\nEnter number of unknown’s variables:";
     cin >> n;
+
+    if (n > 10) {
+        cout << "Unknown variable number maximum 10";
+        exit(0);
+    }
 
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= (n + 1); j++) {
@@ -33,13 +35,9 @@ int main() {
 
     cout << "\nSolution of the Systems: \n";
 
-    c[1] = 'X';
-    c[2] = 'Y';
-    c[3] = 'Z';
-
     for (i = 1; i <= n; i++) {
         x[i] = a[i][n + 1] / a[i][i];
-        cout << c[i] << " = " << x[i] << endl;
+        printf("%c = %f\n", (90 - n) + i, x[i]);
     }
 
     return 0;
